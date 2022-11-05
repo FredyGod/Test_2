@@ -1,0 +1,24 @@
+{% extends "home.html" %}
+{% load static %}
+{% block body %}
+<div class="container md-2">
+    <div class="card col-2 btn bg-success">
+        <a href="create/">Creare task</a>
+    </div>
+    {% for el in projects %}
+    <div class="card col-2 bg-info" style="left: 90%; top: 0px;">
+        <h1>{{ el.title }}</h1>
+        <h1>{{ el.balance }}</h1>
+    </div>
+    {% endfor %}
+    {% if projects_1 %}
+    {% for el in projects_1 %}
+    <div class="card col-2">
+        <h4>{{ el.cats }}</h4>
+        <a href="{% url 'delete' el.id %}" class="btn btn-danger">delete</a>
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+
+{% endblock %}
